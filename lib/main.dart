@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/src/pages/home_page_temp.dart';
+import 'package:flutter_widgets/src/pages/home_page.dart';
+//import 'package:flutter_widgets/src/pages/home_page_temp.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,9 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        home: HomePageTemp());
+        //home: HomePageTemp());
+        home: HomePage());
   }
 }
