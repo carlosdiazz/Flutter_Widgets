@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
       final widgetTemp = ListTile(
         title: Text(element['texto'] ?? ''),
         leading: getIcon(element['icon'] ?? ''),
-        trailing: Icon(Icons.keyboard_alt_sharp),
+        trailing: Icon(Icons.arrow_back_ios_new),
         onTap: () {
           //final route = MaterialPageRoute(builder: (context) {
           //  return AlertPage();
