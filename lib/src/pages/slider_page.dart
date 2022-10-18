@@ -9,6 +9,7 @@ class SliderPage extends StatefulWidget {
 
 class _SliderPageState extends State<SliderPage> {
   double _valorInicial = 0;
+  bool _bloquearChek = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,12 @@ class _SliderPageState extends State<SliderPage> {
       body: Container(
         padding: EdgeInsets.only(top: 50),
         child: Column(
-          children: <Widget>[_crearSlider(), _crearImagen()],
+          children: <Widget>[
+            _crearSlider(),
+            _checkBox(),
+            _crearSwitch(),
+            _crearImagen()
+          ],
         ),
       ),
     );
@@ -30,11 +36,13 @@ class _SliderPageState extends State<SliderPage> {
       activeColor: Colors.indigo,
       //divisions: 20,
       label: 'Tamano de la imagen',
-      onChanged: (value) {
-        setState(() {
-          _valorInicial = value;
-        });
-      },
+      onChanged: (_bloquearChek)
+          ? null
+          : (value) {
+              setState(() {
+                _valorInicial = value;
+              });
+            },
       value: _valorInicial,
       min: 0.0,
       max: 400.0,
@@ -48,5 +56,34 @@ class _SliderPageState extends State<SliderPage> {
       width: _valorInicial,
       fit: BoxFit.contain,
     );
+  }
+
+  Widget _checkBox() {
+    //return Checkbox(
+    //    value: _bloquearChek,
+    //    onChanged: (valor) {
+    //      setState(() {
+    //        _bloquearChek = !_bloquearChek;
+    //      });
+    //    });
+    return CheckboxListTile(
+        title: Text("Bloquear"),
+        value: _bloquearChek,
+        onChanged: (valor) {
+          setState(() {
+            _bloquearChek = !_bloquearChek;
+          });
+        });
+  }
+
+  Widget _crearSwitch() {
+    return SwitchListTile(
+        title: Text("Bloquear"),
+        value: _bloquearChek,
+        onChanged: (valor) {
+          setState(() {
+            _bloquearChek = !_bloquearChek;
+          });
+        });
   }
 }
